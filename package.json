@@ -1,0 +1,25 @@
+{
+  "name": "nickbelzerme",
+  "version": "1.0.0",
+  "description": "personal website",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve src/index.pug -p 3000",
+    "build": "parcel build src/index.pug --no-source-maps --experimental-scope-hoisting --detailed-report -d dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MateyByrd/nickbelzerme.git"
+  },
+  "keywords": [
+    "personal",
+    "website",
+    "portfolio"
+  ],
+  "author": "Nick Belzer",
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "parcel": "^1.11.0",
+    "pug": "^2.0.3"
+  }
+}

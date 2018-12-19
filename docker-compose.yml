@@ -1,0 +1,17 @@
+version: '3.6'
+services:
+  web:
+    container_name: nickbelzerme
+    build:
+      context: .
+    networks:
+      - reverse-proxy_reverse-proxy
+    environment:
+      - VIRTUAL_HOST=${HOST}
+      - LETSENCRYPT_EMAIL=${HOST_EMAIL}
+      - LETSENCRYPT_HOST=${HOST}
+
+networks:
+  reverse-proxy_reverse-proxy:
+    external: true
+
