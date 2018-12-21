@@ -1,6 +1,9 @@
+import { deleteCookie, getCookie, setCookie } from './CookieHandler';
 
 const darkModeToggleId = 'darkModeToggle';
 const darkModeClassName = 'dark-mode';
+const darkModeCookieName = 'dark-mode';
+const darkModeCookieDays = 31;
 
 /**
  * Toggles Dark Mode.
@@ -11,8 +14,10 @@ function toggleDarkMode() {
 	const bodyClasses = document.getElementById('body').classList;
 	if (bodyClasses.contains(darkModeClassName)) {
 		bodyClasses.remove(darkModeClassName);
+		deleteCookie(darkModeCookieName)
 	} else {
 		bodyClasses.add(darkModeClassName);
+		setCookie(darkModeCookieName, true, darkModeCookieDays)
 	}
 }
 
@@ -21,3 +26,7 @@ document.getElementById(darkModeToggleId).onclick = () => {
 	toggleDarkMode();
 	return false; // such that the browser doesn't redirect to href attribute.
 };
+
+if (getCookie(darkModeCookieName) === 'true') {
+	toggleDarkMode()
+}
