@@ -1,0 +1,26 @@
+
+// Dark colours
+$dark-mode-background-color: hsl(220, 4.3, 13.5)
+$dark-mode-text-color: hsl(220, 4.3, 85)
+$dark-mode-link-color: hsl(220, 100, 60)
+$dark-mode-link-color-pressed: hsl(250, 70, 60)
+
+body, .menu .title,	#darkModeToggle svg line
+	transition: background-color ease-in-out .2s, color ease-in-out .2s, opacity ease-in-out .2s
+
+// Visual
+body.dark-mode
+	background-color: $dark-mode-background-color
+	color: $dark-mode-text-color
+
+	.menu
+		.title
+			color: $dark-mode-text-color
+
+	a
+		color: $dark-mode-link-color
+		&:visited
+			color: $dark-mode-link-color-pressed
+
+	#darkModeToggle svg line
+		opacity: .6
