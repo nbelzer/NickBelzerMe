@@ -1,16 +1,42 @@
 
 @import variables
 
+// Visual
+html
+	font-family: Avenir Next, Geneva, sans-serif
+
+body
+	background-color: white
+
+.menu
+	.title
+		color: $title-color
+		font-weight: 600
+
+.highlight
+	font-weight: 600
+
+.projects-grid
+	.project
+		.cover
+			background-color: rgba(0,0,0,0.6)
+			opacity: 0
+		.title, .description
+			color: white
+
+		&:hover
+			.cover
+				opacity: 1
+
+// Structure
 html
 	height: 100%
-	font-family: Avenir Next, Geneva, sans-serif
 	font-size: 16px
 	display: flex
 	justify-content: center
 
 body
 	margin: 0
-	background-color: white
 
 div
 	box-sizing: border-box
@@ -36,15 +62,13 @@ div
 .menu
 	display: flex
 	justify-content: space-between
-	align-items: center
+	align-items: baseline
 	padding: 2.5rem 2rem
 
 	@media screen and (max-width: 532px)
 		padding: 2.5rem 1rem
 
 	.title
-		color: $title-color
-		font-weight: 600
 		font-size: 1.4rem
 
 	a
@@ -54,7 +78,6 @@ div
 .highlight
 	margin: 2rem 0
 	font-size: 2rem
-	font-weight: 600
 
 .projects-grid
 	display: grid
@@ -62,7 +85,6 @@ div
 	padding: 1rem
 	grid-gap: 1.5rem
 	justify-content: center
-
 
 	.project
 		max-width: 30rem
@@ -83,8 +105,6 @@ div
 			width: 100%
 			text-align: center
 			vertical-align: baseline
-			background-color: rgba(0,0,0,0.6)
-			opacity: 0
 			transition: opacity .15s ease-out
 
 		.title, .description
@@ -92,7 +112,6 @@ div
 			transform: translateY(-50%)
 			top: 50%
 			padding: 1rem
-			color: white
 
 		.title
 			font-weight: 600
@@ -101,8 +120,4 @@ div
 		.description
 			top: 45%
 			padding: 1rem 3rem
-
-		&:hover
-			.cover
-				opacity: 1
 
