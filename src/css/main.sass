@@ -70,16 +70,21 @@ div
 		padding: 0 1rem
 
 .menu
-	display: flex
+	display: grid
 	justify-content: space-between
 	align-items: baseline
 	padding: 2.5rem 2rem
+	grid-auto-flow: column
 
 	@media screen and (max-width: 532px)
 		padding: 2.5rem 1rem
 
 	.title
 		font-size: 1.4rem
+
+	.left, .center, .right
+		display: flex
+		align-items: baseline
 
 	a
 		text-transform: uppercase
@@ -89,6 +94,7 @@ div
 		padding: .4rem
 		svg
 			height: 1rem
+			// To make sure their baseline is correct
 			margin-bottom: -.1rem
 
 .highlight
