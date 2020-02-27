@@ -3,13 +3,13 @@ FROM node:8 as builder
 
 # Use a custom builder directory and copy the required files.
 WORKDIR /builder
-COPY src/ src/
-COPY package.json .
 
 # Install the required packages
+COPY package.json .
 RUN ["npm", "install"]
 
 # Build the project
+COPY src/ src/
 RUN ["npm", "run", "build"]
 
 # Inherit from the nginx image
