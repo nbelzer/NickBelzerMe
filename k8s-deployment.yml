@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nickbelzerme
+spec:
+  selector:
+    app: nickbelzerme
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nickbelzerme
+  labels:
+    app: nickbelzerme
+spec:
+  selector:
+    matchLabels:
+      app: nickbelzerme
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nickbelzerme
+    spec:    
+      containers:
+        - name: web
+          image: registry.digitalocean.com/exos-images/nickbelzerme
+          ports: 
+           - containerPort: 80
+             name: http
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nickbelzerme-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    -  http:
+        paths:
+        - path: /
+          backend:
+            serviceName: nickbelzerme
+            servicePort: 80
